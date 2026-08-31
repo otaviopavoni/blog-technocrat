@@ -36,6 +36,10 @@ body {
 }
 
 body header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     height: 4rem;
     justify-content: space-around;
