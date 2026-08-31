@@ -57,10 +57,16 @@ body header nav a{
     color: white;
 }
 
-main{
+main {
   display: flex;
   flex-direction: column;
+  width: 24rem;
+  text-align: center;
+  align-items: center;
+  margin-top: 6rem;
+  justify-self: center;
   gap: 2rem;
+  padding-bottom: 8rem;
 }
 
 .lista1{
