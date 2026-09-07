@@ -48,14 +48,25 @@ body header {
   z-index: 10;
 }
 
-body header nav {
-  display: flex;
-  gap: 1rem;
+header nav {
+    display: flex;
+    gap: 1.5rem;
 }
 
-body header nav a {
-  color: white;
+header nav a {
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    transition: color 0.2s ease;
 }
+
+header nav a:hover {
+    color: #005aff;
+}
+
 
 main {
   width: 90%;
