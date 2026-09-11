@@ -48,13 +48,28 @@ body header {
   z-index: 10;
 }
 
-body header nav {
-  display: flex;
-  gap: 1rem;
+/* MENU */
+
+header nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
 }
 
-body header nav a {
-  color: white;
+header nav a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: #005aff;
 }
 
 main {

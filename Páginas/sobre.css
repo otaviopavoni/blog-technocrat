@@ -48,13 +48,28 @@ body header {
     border-bottom: 5px solid #005aff;
 }
 
-body header nav {
+/* MENU */
+
+header nav {
     display: flex;
-    gap: 1rem;
+
+    align-items: center;
+
+    gap: 25px;
 }
 
-body header nav a{
+header nav a {
     color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: #005aff;
 }
 
 main {
