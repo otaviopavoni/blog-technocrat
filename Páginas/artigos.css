@@ -9,6 +9,14 @@
     margin: 0;
     padding: 0;
 }
+:root {
+    --azul: #005aff;
+    --preto: #000000;
+    --card: #111111;
+    --branco: #ffffff;
+    --cinza: #bdbdbd;
+}
+
 
 
 /* ==============================
@@ -53,15 +61,29 @@ header {
 
 /* LOGO */
 
-.title a {
-    color: #005aff;
+.title {
+    flex-shrink: 0;
+    margin: 0;
+    line-height: 1;
+}
 
-    font-size: 1.8rem;
-    font-weight: bold;
+.title a {
+    color: var(--azul);
+
+    font-size: 38px;
+    font-weight: 800;
     font-style: italic;
 
     text-decoration: none;
+    letter-spacing: -1px;
+
+    transition: color 0.3s ease;
 }
+
+.title a:hover {
+    color: #66aaff;
+}
+
 
 
 /* MENU */
