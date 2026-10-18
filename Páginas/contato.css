@@ -48,7 +48,6 @@ body header {
   z-index: 10;
 }
 
-<<<<<<< HEAD
 header nav {
     display: flex;
     gap: 1.5rem;
@@ -62,30 +61,6 @@ header nav a {
     font-weight: 500;
 
     transition: color 0.2s ease;
-=======
-/* MENU */
-
-header nav {
-    display: flex;
-
-    align-items: center;
-
-    gap: 25px;
-}
-
-header nav a {
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 16px;
-
-    transition: 0.3s;
-}
-
-header nav a:hover {
-    color: #005aff;
->>>>>>> d33d16b69d0cc3970714083bafb4d291497ffc55
 }
 
 header nav a:hover {

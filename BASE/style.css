@@ -1,6 +1,7 @@
-/* =========================================
-   RESET
-========================================= */
+
+/* ========================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+======================================== */
 
 *,
 *::before,
@@ -14,505 +15,455 @@ html {
     scroll-behavior: smooth;
 }
 
+:root {
+    --azul: #005aff;
+    --preto: #000000;
+    --card: #111111;
+    --branco: #ffffff;
+    --cinza: #bdbdbd;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-
-    background-color: #000000;
-
-    color: #ffffff;
-
+    background-color: var(--preto);
+    color: var(--branco);
+    line-height: 1.6;
     min-height: 100vh;
 
-    padding-top: 55px;
-    padding-bottom: 120px;
+    display: flex;
+    flex-direction: column;
 }
 
+/* ========================================
+   2. CABEÇALHO
+======================================== */
 
-/* =========================================
-   HEADER
-========================================= */
-
-header {
+.cabecalho {
     width: 100%;
-    height: 55px;
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
+    min-height: 75px;
 
     display: flex;
-
     align-items: center;
+    justify-content: space-between;
 
-    background-color: #000000;
+    padding: 10px 7%;
 
+    background-color: var(--preto);
     border-bottom: 2px solid #006eff;
 
+    position: sticky;
+    top: 0;
     z-index: 1000;
-}
-
-
-/* =========================================
-   LOGO
-========================================= */
-
-.title {
-    position: absolute;
-
-    left: 60px;
-
-    font-size: 34px;
-
-    font-weight: bold;
-
-    font-style: italic;
-}
-
-.title a {
-    color: #006eff;
-
-    text-decoration: none;
-
-    transition: 0.3s ease;
-}
-
-.title a:hover {
-    color: #4d9cff;
-
-    text-shadow:
-        0 0 10px rgba(0, 110, 255, 0.8);
-}
-
-
-/* =========================================
-   MENU
-========================================= */
-
-header nav {
-    position: absolute;
-
-    right: 60px;
-
-    display: flex;
-
-    align-items: center;
 
     gap: 30px;
 }
 
-header nav a {
-    color: #ffffff;
+/* LOGO */
+
+.title {
+    flex-shrink: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+.title a {
+    color: var(--azul);
+
+    font-size: 38px;
+    font-weight: 800;
+    font-style: italic;
 
     text-decoration: none;
+    letter-spacing: -1px;
 
-    font-size: 18px;
-
-    font-weight: 600;
-
-    transition: 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-header nav a:hover {
-    color: #006eff;
-
-    text-shadow:
-        0 0 8px rgba(0, 110, 255, 0.8);
+.title a:hover {
+    color: #66aaff;
 }
 
+/* ========================================
+   3. MENU DE NAVEGAÇÃO
+======================================== */
 
-/* =========================================
-   MENU - LINHA EMBAIXO
-========================================= */
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
-header nav a {
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+
+.menu a {
     position: relative;
+
+    color: var(--branco);
+    font-size: 16px;
+    font-weight: 500;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    padding: 8px 0;
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
 }
 
-header nav a::after {
-    content: "";
+/* EFEITO AZUL NO MENU */
 
-    position: absolute;
-
-    left: 50%;
-
-    bottom: -7px;
-
-    width: 0;
-
-    height: 2px;
-
-    background-color: #006eff;
-
-    transform: translateX(-50%);
-
-    transition: 0.3s ease;
-}
-
-header nav a:hover::after {
-    width: 100%;
+.menu a:hover {
+    color: var(--azul);
+    text-shadow: 0 0 8px rgb(0 90 255 / 45%);
 }
 
 
-/* =========================================
-   MAIN
-========================================= */
+/* ========================================
+   4. CONTEÚDO PRINCIPAL
+======================================== */
 
 main {
     width: 100%;
-
     max-width: 1200px;
 
     margin: 0 auto;
+    padding: 60px 30px;
 
-    padding: 90px 30px 80px;
+    flex: 1;
 }
 
+/* ========================================
+   5. SEÇÃO PRINCIPAL
+======================================== */
 
-/* =========================================
-   PRIMEIRA SEÇÃO
-========================================= */
-
-main > section:first-child {
+.destaque {
     text-align: center;
-
-    margin-bottom: 70px;
+    padding: 50px 10px 70px;
+    margin-bottom: 30px;
 }
 
-main > section:first-child h2 {
-    font-size: 40px;
-
-    margin-bottom: 15px;
-
-    color: #ffffff;
-
-    font-weight: 700;
+.destaque h2 {
+    color: var(--branco);
+    font-size: clamp(30px, 4vw, 40px);
+    line-height: 1.25;
+    margin-bottom: 20px;
 }
 
-main > section:first-child p {
+.destaque p {
+    color: var(--cinza);
     font-size: 18px;
-
-    color: #bdbdbd;
-
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
+/* BOTÕES */
 
-/* =========================================
-   BOTÃO
-========================================= */
-
-main section > a {
+.botao {
     display: inline-block;
 
     padding: 12px 25px;
 
     border: 1px solid #006eff;
-
     border-radius: 6px;
 
     color: #006eff;
-
     text-decoration: none;
-
     font-weight: bold;
 
-    transition: 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
 }
 
-main section > a:hover {
+.botao:hover {
     background-color: #006eff;
+    color: var(--branco);
 
-    color: #ffffff;
-
-    box-shadow:
-        0 0 15px rgba(0, 110, 255, 0.5);
+    box-shadow: 0 0 15px rgb(0 110 255 / 40%);
+    transform: translateY(-2px);
 }
 
+/* ========================================
+   6. SEÇÃO DOS CARDS
+======================================== */
 
-/* =========================================
-   TÍTULO DAS SEÇÕES
-========================================= */
+.secao-cards {
+    text-align: center;
+    margin-bottom: 80px;
+}
 
-section h2 {
-    color: #ffffff;
-
+.secao-cards > h2,
+.secao-categorias > h2 {
+    font-size: 30px;
+    line-height: 1.3;
     margin-bottom: 30px;
 }
 
+/* GRID DOS CARDS */
 
-/* =========================================
-   ÁREA DOS CARDS
-========================================= */
-
-main > section:nth-child(2) {
-    text-align: center;
-
-    margin-bottom: 70px;
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
 }
 
+/* CARDS */
 
-/* =========================================
-   CARDS
-========================================= */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
-main > section:nth-child(2) > div {
-    display: inline-flex;
-
-    vertical-align: top;
-
-    text-align: left;
-
-    width: 31%;
-
-    min-height: 250px;
-
-    margin: 10px;
+    min-width: 0;
+    min-height: 220px;
 
     padding: 30px;
 
-    flex-direction: column;
+    text-align: left;
 
-    justify-content: flex-start;
-
-    background-color: #111111;
-
+    background-color: var(--card);
     border: 1px solid #006eff;
-
     border-radius: 15px;
 
-    transition: 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-
-/* =========================================
-   EFEITO DOS CARDS
-========================================= */
-
-main > section:nth-child(2) > div:hover {
-    transform: translateY(-8px);
-
-    background-color: #151515;
-
-    border-color: #2385ff;
-
-    box-shadow:
-        0 0 20px rgba(0, 110, 255, 0.25);
-}
-
-
-/* =========================================
-   TÍTULO DOS CARDS
-========================================= */
-
-main > section:nth-child(2) h3 {
-    color: #ffffff;
-
+.card h3 {
+    color: var(--branco);
     font-size: 23px;
-
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-
-/* =========================================
-   TEXTO DOS CARDS
-========================================= */
-
-main > section:nth-child(2) p {
+.card p {
     color: #d0d0d0;
-
-    font-size: 17px;
-
-    line-height: 1.6;
-
-    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 1.7;
 }
 
-
-/* =========================================
-   LINK "SAIBA MAIS"
-========================================= */
-
-main > section:nth-child(2) a {
-    color: #006eff;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    margin-top: auto;
-
-    transition: 0.3s;
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #2385ff;
+    box-shadow: 0 0 20px rgb(0 110 255 / 20%);
 }
 
-main > section:nth-child(2) a:hover {
-    color: #66aaff;
-}
+/* ========================================
+   7. SEÇÃO DE CATEGORIAS
+======================================== */
 
-
-/* =========================================
-   ÚLTIMA SEÇÃO
-========================================= */
-
-main > section:last-child {
+.secao-categorias {
     text-align: center;
 
     padding: 50px 20px;
 
     border-top: 1px solid #202020;
-
     border-bottom: 1px solid #202020;
 }
 
-main > section:last-child h2 {
-    font-size: 30px;
-
-    margin-bottom: 15px;
-}
-
-main > section:last-child p {
-    color: #bdbdbd;
-
+.secao-categorias p {
+    color: var(--cinza);
     font-size: 17px;
-
     margin-bottom: 25px;
 }
 
+/* ========================================
+   8. RODAPÉ
+======================================== */
 
-/* =========================================
-   FOOTER
-========================================= */
-
-footer {
+.rodape {
     width: 100%;
 
-    min-height: 100px;
-
-    position: fixed;
-
-    bottom: 0;
-
-    left: 0;
-
     display: flex;
-
     flex-direction: column;
-
+    align-items: center;
     justify-content: center;
 
-    align-items: center;
-
     gap: 10px;
+    padding: 20px;
 
-    background-color: #ffffff;
-
+    background-color: var(--branco);
     color: #111111;
 
-    z-index: 1000;
+    text-align: center;
 }
 
-footer p {
-    font-size: 17px;
+.rodape p {
+    font-size: 15px;
 }
 
-footer nav {
+.rodape nav {
     display: flex;
-
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 25px;
 }
 
-footer a {
+.rodape a {
     color: #111111;
-
     text-decoration: none;
 
-    font-size: 17px;
-
-    transition: 0.3s;
+    transition: color 0.3s ease;
 }
 
-footer a:hover {
-    color: #006eff;
+.rodape a:hover {
+    color: var(--azul);
+    text-decoration: underline;
 }
 
+/* ========================================
+   9. TABLETS E TELAS MÉDIAS
+======================================== */
 
-/* =========================================
-   RESPONSIVIDADE
-========================================= */
-
-@media (max-width: 900px) {
-
-    .title {
-        left: 30px;
-
-        font-size: 28px;
+@media (max-width: 1000px) {
+    .cabecalho {
+        padding-left: 4%;
+        padding-right: 4%;
+        gap: 20px;
     }
 
-    header nav {
-        right: 30px;
+    .title a {
+        font-size: 32px;
+    }
 
+    .menu {
         gap: 18px;
     }
 
-    header nav a {
-        font-size: 15px;
+    .menu a {
+        font-size: 14px;
     }
 
-    main > section:nth-child(2) > div {
-        width: 45%;
+    .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+/* ========================================
+   10. CELULARES
+======================================== */
 
-@media (max-width: 650px) {
-
-    header {
-        height: auto;
-
-        min-height: 110px;
+@media (max-width: 700px) {
+    .cabecalho {
+        position: sticky;
 
         flex-direction: column;
+        justify-content: center;
 
-        padding: 15px;
+        gap: 12px;
+        padding: 14px 12px;
+
+        min-height: auto;
     }
 
-    .title {
-        position: static;
-
-        margin-bottom: 10px;
+    .title a {
+        font-size: 32px;
     }
 
-    header nav {
-        position: static;
+    .menu {
+        width: 100%;
 
+        display: flex;
         flex-wrap: wrap;
 
         justify-content: center;
-
-        gap: 15px;
+        gap: 6px 18px;
     }
 
-    body {
-        padding-top: 110px;
+    .menu a {
+        font-size: 14px;
+        padding: 5px 0;
     }
 
     main {
-        padding: 50px 20px 100px;
+        padding: 30px 16px;
     }
 
-    main > section:first-child h2 {
+    .destaque {
+        padding: 35px 5px 45px;
+    }
+
+    .destaque h2 {
         font-size: 30px;
     }
 
-    main > section:nth-child(2) > div {
-        width: 100%;
-
-        margin: 10px 0;
+    .destaque p {
+        font-size: 16px;
     }
 
-    footer {
-        position: relative;
+    .secao-cards > h2,
+    .secao-categorias > h2 {
+        font-size: 25px;
+    }
 
-        margin-top: 30px;
+    .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .card {
+        min-height: auto;
+        padding: 24px;
+    }
+
+    .secao-categorias {
+        padding: 35px 10px;
+    }
+}
+
+/* ========================================
+   11. CELULARES PEQUENOS
+======================================== */
+
+@media (max-width: 380px) {
+    .title a {
+        font-size: 29px;
+    }
+
+    .menu {
+        gap: 5px 12px;
+    }
+
+    .menu a {
+        font-size: 13px;
+    }
+
+    main {
+        padding: 25px 12px;
+    }
+
+    .destaque h2 {
+        font-size: 26px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+/* ========================================
+   12. ACESSIBILIDADE
+======================================== */
+
+a:focus-visible {
+    outline: 2px solid #66aaff;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }
