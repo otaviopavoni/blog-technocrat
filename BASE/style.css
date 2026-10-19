@@ -1,8 +1,9 @@
+/* =====================================================
+   style.css
+   BASE COMUM (idêntica em todos os arquivos)
+   ===================================================== */
 
-/* ========================================
-   1. RESET E CONFIGURAÇÕES GERAIS
-======================================== */
-
+/* ---------- Reset ---------- */
 *,
 *::before,
 *::after {
@@ -13,438 +14,209 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
+/* ---------- Variáveis ---------- */
 :root {
     --azul: #005aff;
+    --azul-claro: #66aaff;
     --preto: #000000;
     --card: #111111;
     --branco: #ffffff;
     --cinza: #bdbdbd;
+    --cinza-claro: #dddddd;
+    --borda: #303030;
 }
 
+/* ---------- Corpo (rodapé sempre no fim da página) ---------- */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--preto);
-    color: var(--branco);
-    line-height: 1.6;
+    min-width: 320px;
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    line-height: 1.6;
+    background-color: var(--preto);
+    color: var(--branco);
+    -webkit-font-smoothing: antialiased;
 }
 
-/* ========================================
-   2. CABEÇALHO
-======================================== */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
 
-.cabecalho {
-    width: 100%;
-    min-height: 75px;
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+a {
+    color: inherit;
+}
 
-    padding: 10px 7%;
-
-    background-color: var(--preto);
-    border-bottom: 2px solid #006eff;
-
+/* ---------- Cabeçalho (celular: coluna) ---------- */
+.cabecalho,
+body > header {
     position: sticky;
     top: 0;
     z-index: 1000;
 
-    gap: 30px;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
 
-/* LOGO */
+    width: 100%;
+    padding: 0.875rem 1rem;
+
+    background-color: var(--preto);
+    border-bottom: 3px solid var(--azul);
+}
 
 .title {
     flex-shrink: 0;
     margin: 0;
     line-height: 1;
+    text-align: center;
 }
 
 .title a {
     color: var(--azul);
-
-    font-size: 38px;
+    font-size: clamp(1.75rem, 6vw, 2.375rem);
     font-weight: 800;
     font-style: italic;
-
-    text-decoration: none;
     letter-spacing: -1px;
-
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.title a:hover {
-    color: #66aaff;
-}
-
-/* ========================================
-   3. MENU DE NAVEGAÇÃO
-======================================== */
-
-.menu {
+/* ---------- Menu ---------- */
+.menu,
+body > header nav {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-end;
-
-    gap: 30px;
-    flex-wrap: nowrap;
+    gap: 0.375rem 1.125rem;
+    width: 100%;
 }
 
-.menu a {
-    position: relative;
-
+.menu a,
+body > header nav a {
+    padding: 0.3rem 0;
     color: var(--branco);
-    font-size: 16px;
+    font-size: 0.9rem;
     font-weight: 500;
-
     text-decoration: none;
     white-space: nowrap;
-
-    padding: 8px 0;
-
-    transition:
-        color 0.3s ease,
-        text-shadow 0.3s ease;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
-/* EFEITO AZUL NO MENU */
-
-.menu a:hover {
-    color: var(--azul);
-    text-shadow: 0 0 8px rgb(0 90 255 / 45%);
-}
-
-
-   /* 4. CONTEÚDO PRINCIPAL */
-
-
-main {
-    width: 100%;
-    max-width: 1200px;
-
-    margin: 0 auto;
-    padding: 60px 30px;
-
-    flex: 1;
-}
-
-
-   /* 5. SEÇÃO PRINCIPAL */
-
-
-.destaque {
-    text-align: center;
-    padding: 50px 10px 70px;
-    margin-bottom: 30px;
-}
-
-.destaque h2 {
-    color: var(--branco);
-    font-size: clamp(30px, 4vw, 40px);
-    line-height: 1.25;
-    margin-bottom: 20px;
-}
-
-.destaque p {
-    color: var(--cinza);
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-/* BOTÕES */
-
-.botao {
-    display: inline-block;
-
-    padding: 12px 25px;
-
-    border: 1px solid #006eff;
-    border-radius: 6px;
-
-    color: #006eff;
-    text-decoration: none;
-    font-weight: bold;
-
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.3s ease;
-}
-
-.botao:hover {
-    background-color: #006eff;
-    color: var(--branco);
-
-    box-shadow: 0 0 15px rgb(0 110 255 / 40%);
-    transform: translateY(-2px);
-}
-
-
-   /* 6. SEÇÃO DOS CARDS */
- 
-
-.secao-cards {
-    text-align: center;
-    margin-bottom: 80px;
-}
-
-.secao-cards > h2,
-.secao-categorias > h2 {
-    font-size: 30px;
-    line-height: 1.3;
-    margin-bottom: 30px;
-}
-
-/* GRID DOS CARDS */
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 25px;
-}
-
-/* CARDS */
-
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    min-width: 0;
-    min-height: 220px;
-
-    padding: 30px;
-
-    text-align: left;
-
-    background-color: var(--card);
-    border: 1px solid #006eff;
-    border-radius: 15px;
-
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.card h3 {
-    color: var(--branco);
-    font-size: 23px;
-    margin-bottom: 15px;
-}
-
-.card p {
-    color: #d0d0d0;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    border-color: #2385ff;
-    box-shadow: 0 0 20px rgb(0 110 255 / 20%);
-}
-
-   /* 7. SEÇÃO DE CATEGORIAS */
-
-.secao-categorias {
-    text-align: center;
-
-    padding: 50px 20px;
-
-    border-top: 1px solid #202020;
-    border-bottom: 1px solid #202020;
-}
-
-.secao-categorias p {
-    color: var(--cinza);
-    font-size: 17px;
-    margin-bottom: 25px;
-}
-
-   /* 8. RODAPÉ     */
-
-.rodape {
-    width: 100%;
-
+/* ---------- Rodapé ---------- */
+.rodape,
+body > footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 0.75rem;
 
-    gap: 10px;
-    padding: 20px;
+    width: 100%;
+    padding: 1.25rem 1rem;
 
     background-color: var(--branco);
-    color: #111111;
-
+    color: var(--preto);
     text-align: center;
 }
 
-.rodape p {
-    font-size: 15px;
+.rodape p,
+body > footer p {
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
 }
 
-.rodape nav {
+.rodape nav,
+body > footer nav {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
 }
 
-.rodape a {
-    color: #111111;
+.rodape a,
+body > footer a {
+    color: var(--preto);
     text-decoration: none;
-
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
 }
 
-.rodape a:hover {
-    color: var(--azul);
-    text-decoration: underline;
-}
-
-
-  /* 9. TABLETS E TELAS MÉDIAS */
-
-
-@media (max-width: 1000px) {
-    .cabecalho {
-        padding-left: 4%;
-        padding-right: 4%;
-        gap: 20px;
+/* ---------- Tablet / desktop: cabeçalho em linha ---------- */
+@media (min-width: 600px) {
+    .cabecalho,
+    body > header {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1.25rem;
+        padding: 0.875rem 5%;
     }
 
-    .title a {
-        font-size: 32px;
-    }
-
-    .menu {
-        gap: 18px;
-    }
-
-    .menu a {
-        font-size: 14px;
-    }
-
-    .cards-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .menu,
+    body > header nav {
+        width: auto;
+        justify-content: flex-end;
+        gap: 0.5rem 1.5rem;
     }
 }
 
-   /* 10. CELULARES */
-
-@media (max-width: 700px) {
-    .cabecalho {
-        position: sticky;
-
-        flex-direction: column;
-        justify-content: center;
-
-        gap: 12px;
-        padding: 14px 12px;
-
-        min-height: auto;
+@media (min-width: 1000px) {
+    .cabecalho,
+    body > header {
+        padding-inline: 8%;
+        min-height: 5rem;
     }
 
-    .title a {
-        font-size: 32px;
-    }
-
-    .menu {
-        width: 100%;
-
-        display: flex;
-        flex-wrap: wrap;
-
-        justify-content: center;
-        gap: 6px 18px;
-    }
-
-    .menu a {
-        font-size: 14px;
-        padding: 5px 0;
-    }
-
-    main {
-        padding: 30px 16px;
-    }
-
-    .destaque {
-        padding: 35px 5px 45px;
-    }
-
-    .destaque h2 {
-        font-size: 30px;
-    }
-
-    .destaque p {
-        font-size: 16px;
-    }
-
-    .secao-cards > h2,
-    .secao-categorias > h2 {
-        font-size: 25px;
-    }
-
-    .cards-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 18px;
-    }
-
-    .card {
-        min-height: auto;
-        padding: 24px;
-    }
-
-    .secao-categorias {
-        padding: 35px 10px;
+    .menu a,
+    body > header nav a {
+        font-size: 1rem;
     }
 }
 
-
-   /* 11. CELULARES PEQUENOS */
-
-
-@media (max-width: 380px) {
-    .title a {
-        font-size: 29px;
+/* ---------- Efeitos só onde existe hover ---------- */
+@media (hover: hover) and (pointer: fine) {
+    .title a:hover {
+        color: var(--azul-claro);
     }
 
-    .menu {
-        gap: 5px 12px;
+    .menu a:hover,
+    body > header nav a:hover {
+        color: var(--azul);
+        text-shadow: 0 0 8px rgb(0 90 255 / 45%);
     }
 
-    .menu a {
-        font-size: 13px;
-    }
-
-    main {
-        padding: 25px 12px;
-    }
-
-    .destaque h2 {
-        font-size: 26px;
-    }
-
-    .card {
-        padding: 20px;
+    .rodape a:hover,
+    body > footer a:hover {
+        color: var(--azul);
+        text-decoration: underline;
     }
 }
 
-
-  /* 12. ACESSIBILIDADE */
-
-
-a:focus-visible {
-    outline: 2px solid #66aaff;
+/* ---------- Acessibilidade ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--azul-claro);
     outline-offset: 4px;
 }
 
@@ -457,6 +229,184 @@ a:focus-visible {
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* =====================================================
+   PÁGINA: INÍCIO (HOME)
+   ===================================================== */
+
+main {
+    flex: 1;
+
+    width: min(100% - 2rem, 75rem);
+    margin-inline: auto;
+    padding-block: 2rem 3rem;
+}
+
+/* ---------- Destaque ---------- */
+.destaque {
+    margin-bottom: 1.5rem;
+    padding: 2.25rem 0.5rem 2.75rem;
+    text-align: center;
+}
+
+.destaque h2 {
+    margin-bottom: 1.25rem;
+    color: var(--branco);
+    font-size: clamp(1.65rem, 6vw, 2.5rem);
+    line-height: 1.25;
+}
+
+.destaque p {
+    max-width: 40rem;
+    margin: 0 auto 1.75rem;
+    color: var(--cinza);
+    font-size: clamp(1rem, 3vw, 1.125rem);
+}
+
+/* ---------- Botão ---------- */
+.botao {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+
+    color: var(--azul);
+    border: 1px solid var(--azul);
+    border-radius: 6px;
+
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+
+    transition: background-color 0.3s ease, color 0.3s ease,
+        box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* ---------- Seção de cards ---------- */
+.secao-cards {
+    margin-bottom: 3.5rem;
+    text-align: center;
+}
+
+.secao-cards > h2,
+.secao-categorias > h2 {
+    margin-bottom: 1.75rem;
+    font-size: clamp(1.5rem, 5vw, 1.9rem);
+    line-height: 1.3;
+}
+
+/* Celular: 1 coluna */
+.cards-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.125rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 1.5rem;
+
+    text-align: left;
+
+    background-color: var(--card);
+    border: 1px solid var(--azul);
+    border-radius: 15px;
+
+    transition: transform 0.3s ease, border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card h3 {
+    margin-bottom: 0.875rem;
+    color: var(--branco);
+    font-size: 1.4rem;
+    line-height: 1.3;
+}
+
+.card p {
+    color: var(--cinza-claro);
+    line-height: 1.7;
+}
+
+/* ---------- Seção de categorias ---------- */
+.secao-categorias {
+    padding: 2.25rem 0.625rem;
+    text-align: center;
+
+    border-top: 1px solid var(--borda);
+    border-bottom: 1px solid var(--borda);
+}
+
+.secao-categorias p {
+    margin-bottom: 1.5rem;
+    color: var(--cinza);
+    font-size: 1.05rem;
+}
+
+/* ---------- Tablet: cards em 2 colunas ---------- */
+@media (min-width: 600px) {
+    main {
+        padding-block: 3rem 4rem;
+    }
+
+    .destaque {
+        padding: 3.5rem 1rem 4rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .card {
+        min-height: 13rem;
+        padding: 1.75rem;
+    }
+
+    .secao-categorias {
+        padding: 3rem 1.25rem;
+    }
+}
+
+/* ---------- Desktop: cards em 3 colunas ---------- */
+@media (min-width: 1000px) {
+    main {
+        padding-block: 4rem 5rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .card {
+        padding: 1.875rem;
+    }
+
+    .secao-cards {
+        margin-bottom: 5rem;
+    }
+}
+
+/* ---------- Hover ---------- */
+@media (hover: hover) and (pointer: fine) {
+    .botao:hover {
+        background-color: var(--azul);
+        color: var(--branco);
+        box-shadow: 0 0 15px rgb(0 90 255 / 40%);
+        transform: translateY(-2px);
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        border-color: #2385ff;
+        box-shadow: 0 0 20px rgb(0 110 255 / 20%);
     }
 }

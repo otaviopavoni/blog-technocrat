@@ -1,7 +1,9 @@
-/* ==============================
-   RESET
-   ============================== */
+/* =====================================================
+   artigos.css
+   BASE COMUM (idêntica em todos os arquivos)
+   ===================================================== */
 
+/* ---------- Reset ---------- */
 *,
 *::before,
 *::after {
@@ -9,319 +11,363 @@
     margin: 0;
     padding: 0;
 }
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* ---------- Variáveis ---------- */
 :root {
     --azul: #005aff;
+    --azul-claro: #66aaff;
     --preto: #000000;
     --card: #111111;
     --branco: #ffffff;
     --cinza: #bdbdbd;
+    --cinza-claro: #dddddd;
+    --borda: #303030;
 }
 
-
-
-/* ==============================
-   CONFIGURAÇÕES GERAIS
-   ============================== */
+/* ---------- Corpo (rodapé sempre no fim da página) ---------- */
 body {
+    min-width: 320px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
+    line-height: 1.6;
+    background-color: var(--preto);
+    color: var(--branco);
+    -webkit-font-smoothing: antialiased;
+}
 
-    background-color: #000000;
-    color: #ffffff;
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
 
-    line-height: 1.5;
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
 
-    min-height: 100vh;
+a {
+    color: inherit;
+}
+
+/* ---------- Cabeçalho (celular: coluna) ---------- */
+.cabecalho,
+body > header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
     display: flex;
     flex-direction: column;
-}
-
-
-/* ==============================
-   HEADER
-   ============================== */
-
-header {
-    width: 100%;
-    min-height: 4rem;
-
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 0.75rem;
 
-    padding: 0 5%;
+    width: 100%;
+    padding: 0.875rem 1rem;
 
-    background-color: #000000;
-
-    border-bottom: 2px solid #005aff;
+    background-color: var(--preto);
+    border-bottom: 3px solid var(--azul);
 }
-
-
-/* LOGO */
 
 .title {
     flex-shrink: 0;
     margin: 0;
     line-height: 1;
+    text-align: center;
 }
 
 .title a {
     color: var(--azul);
-
-    font-size: 38px;
+    font-size: clamp(1.75rem, 6vw, 2.375rem);
     font-weight: 800;
     font-style: italic;
-
-    text-decoration: none;
     letter-spacing: -1px;
-
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.title a:hover {
-    color: #66aaff;
+/* ---------- Menu ---------- */
+.menu,
+body > header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.375rem 1.125rem;
+    width: 100%;
+}
+
+.menu a,
+body > header nav a {
+    padding: 0.3rem 0;
+    color: var(--branco);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* ---------- Rodapé ---------- */
+.rodape,
+body > footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+
+    width: 100%;
+    padding: 1.25rem 1rem;
+
+    background-color: var(--branco);
+    color: var(--preto);
+    text-align: center;
+}
+
+.rodape p,
+body > footer p {
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.rodape nav,
+body > footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+}
+
+.rodape a,
+body > footer a {
+    color: var(--preto);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+/* ---------- Tablet / desktop: cabeçalho em linha ---------- */
+@media (min-width: 600px) {
+    .cabecalho,
+    body > header {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1.25rem;
+        padding: 0.875rem 5%;
+    }
+
+    .menu,
+    body > header nav {
+        width: auto;
+        justify-content: flex-end;
+        gap: 0.5rem 1.5rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .cabecalho,
+    body > header {
+        padding-inline: 8%;
+        min-height: 5rem;
+    }
+
+    .menu a,
+    body > header nav a {
+        font-size: 1rem;
+    }
+}
+
+/* ---------- Efeitos só onde existe hover ---------- */
+@media (hover: hover) and (pointer: fine) {
+    .title a:hover {
+        color: var(--azul-claro);
+    }
+
+    .menu a:hover,
+    body > header nav a:hover {
+        color: var(--azul);
+        text-shadow: 0 0 8px rgb(0 90 255 / 45%);
+    }
+
+    .rodape a:hover,
+    body > footer a:hover {
+        color: var(--azul);
+        text-decoration: underline;
+    }
+}
+
+/* ---------- Acessibilidade ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--azul-claro);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 
+/* =====================================================
+   PÁGINA: ARTIGOS
+   ===================================================== */
 
-/* MENU */
+main {
+    flex: 1;
 
-header nav {
-    display: flex;
+    width: min(100% - 2rem, 75rem);
+    margin-inline: auto;
+    padding-block: 2rem 3rem;
+}
+
+/* ---------- Seção: grid de artigos (celular: 1 coluna) ---------- */
+main section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
 }
 
-header nav a {
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-weight: 500;
-
-    transition: color 0.2s ease;
-}
-
-header nav a:hover {
-    color: #005aff;
-}
-
-
-/* ==============================
-   CONTEÚDO PRINCIPAL
-   ============================== */
-
-main {
-    max-width: 1200px;
-    width: 100%;
-
-    margin: 0 auto;
-
-    padding: 4rem 2rem;
-
-    flex: 1;
-}
-
-
-/* TÍTULO DA SEÇÃO */
-
-section > h2 {
-    width: 100%;
-
-    margin-bottom: 2rem;
-
-    text-align: center;
-
-    font-size: 2rem;
-}
-
-
-/* ==============================
-   SEÇÃO DE ARTIGOS
-   ============================== */
-
-section {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 2rem;
-}
-
-section > h2 {
+main section > h2 {
     grid-column: 1 / -1;
-
-    margin-bottom: 1rem;
-
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.5rem, 5vw, 2rem);
     text-align: center;
 }
 
-
-/* ==============================
-   CARDS DOS ARTIGOS
-   ============================== */
-
+/* ---------- Cards ---------- */
 article {
-    width: 100%;
-
+    display: block;
+    min-width: 0;
     padding: 1rem;
 
-    background-color: #111111;
-
-    border: 1px solid #005aff;
-
+    background-color: var(--card);
+    border: 1px solid var(--azul);
     border-radius: 12px;
-
     overflow: hidden;
 
-    transition: transform 0.2s ease,
-                border-color 0.2s ease;
-}
-
-
-article:hover {
-    transform: translateY(-5px);
-
-    border-color: #ffffff;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 article img {
+    display: block;
     width: 100%;
-    height: 160px;
-
-    object-fit: cover;
+    height: 10rem;
+    min-height: 10rem;
+    margin-bottom: 1rem;
 
     border-radius: 8px;
+    object-fit: cover;
+}
 
-    margin-bottom: 1rem;
+/* Se a imagem estiver dentro de um link, o link ocupa a largura toda */
+article a:has(> img) {
+    display: block;
+    width: 100%;
 }
 
 article span {
     display: block;
-
     margin-bottom: 0.5rem;
 
-    color: #005aff;
-
+    color: var(--azul);
     font-size: 0.8rem;
-
     font-weight: bold;
-
     text-transform: uppercase;
 }
 
+article h2,
 article h3 {
     margin-bottom: 1rem;
 
-    font-size: 1.2rem;
-
+    color: var(--branco);
+    font-size: 1.25rem;
     line-height: 1.3;
-}
-
-
-/* TÍTULO DO ARTIGO */
-
-article h3,
-article h2 {
-    margin-bottom: 1rem;
-
-    color: #ffffff;
-
-    font-size: 1.3rem;
-
     text-transform: capitalize;
+    overflow-wrap: anywhere;
 }
-
-
-/* TEXTO */
 
 article p {
     margin-bottom: 1.5rem;
-
-    color: #cccccc;
+    color: var(--cinza-claro);
+    overflow-wrap: anywhere;
 }
 
-
-/* LINK */
-
+/* Link "ler mais" */
 article a {
     display: inline-block;
 
-    color: #005aff;
-
+    color: var(--azul);
     font-weight: bold;
-
     text-decoration: none;
-
     transition: color 0.2s ease;
 }
 
-
-article a:hover {
-    color: #ffffff;
-
-    text-decoration: underline;
-}
-
-
-/* ==============================
-   FOOTER
-   ============================== */
-
-footer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    gap: 0.3rem;
-
-    padding: 0.8rem;
-
-    background-color: #ffffff;
-    color: #000000;
-}
-
-footer nav {
-    display: flex;
-    gap: 1rem;
-}
-
-footer a {
-    color: #000000;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #005aff;
-    text-decoration: underline;
-}
-
-@media (max-width: 700px) {
-
-    header {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
-
-    header nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.8rem;
-    }
-
+/* ---------- Tablet: 2 colunas ---------- */
+@media (min-width: 600px) {
     main {
-        padding: 2rem 1rem;
+        padding-block: 3rem 4rem;
     }
 
-    section {
-        grid-template-columns: 1fr;
+    main section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.75rem;
+    }
+}
+
+/* ---------- Desktop: 3 colunas ---------- */
+@media (min-width: 1000px) {
+    main {
+        padding-block: 4rem 5rem;
     }
 
-    article {
-        width: 100%;
+    main section {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
     }
 
+    article img {
+        height: 10.5rem;
+        min-height: 10.5rem;
+    }
+}
+
+/* ---------- Hover ---------- */
+@media (hover: hover) and (pointer: fine) {
+    article:hover {
+        transform: translateY(-5px);
+        border-color: var(--branco);
+    }
+
+    article a:hover {
+        color: var(--branco);
+        text-decoration: underline;
+    }
 }
