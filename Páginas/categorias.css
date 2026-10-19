@@ -1,8 +1,9 @@
+/* =====================================================
+   categorias.css
+   BASE COMUM (idêntica em todos os arquivos)
+   ===================================================== */
 
-   /* 1. CONFIGURAÇÕES GERAIS
-   MOBILE FIRST */
-
-
+/* ---------- Reset ---------- */
 *,
 *::before,
 *::after {
@@ -11,344 +12,213 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* ---------- Variáveis ---------- */
 :root {
     --azul: #005aff;
+    --azul-claro: #66aaff;
     --preto: #000000;
-    --fundo-card: #090909;
+    --card: #111111;
     --branco: #ffffff;
-    --cinza: #dddddd;
+    --cinza: #bdbdbd;
+    --cinza-claro: #dddddd;
     --borda: #303030;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+/* ---------- Corpo (rodapé sempre no fim da página) ---------- */
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, Arial, sans-serif;
+    min-width: 320px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    line-height: 1.6;
     background-color: var(--preto);
     color: var(--branco);
-    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    min-width: 320px;
 }
 
-img {
+img,
+picture,
+video,
+canvas,
+svg {
     display: block;
     max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
 }
 
 a {
     color: inherit;
 }
 
-
-/* 2. CABEÇALHO RESPONSIVO */
-
-
-.cabecalho {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
-    background-color: var(--preto);
-    border-bottom: 4px solid var(--azul);
+/* ---------- Cabeçalho (celular: coluna) ---------- */
+.cabecalho,
+body > header {
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+
+    width: 100%;
+    padding: 0.875rem 1rem;
+
+    background-color: var(--preto);
+    border-bottom: 3px solid var(--azul);
 }
 
 .title {
+    flex-shrink: 0;
     margin: 0;
+    line-height: 1;
     text-align: center;
 }
 
 .title a {
     color: var(--azul);
-    font-size: clamp(26px, 5vw, 36px);
+    font-size: clamp(1.75rem, 6vw, 2.375rem);
     font-weight: 800;
     font-style: italic;
-    text-decoration: none;
     letter-spacing: -1px;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-   /* 3. MENU COM FLEXBOX */
-
-.menu {
+/* ---------- Menu ---------- */
+.menu,
+body > header nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 6px 16px;
+    gap: 0.375rem 1.125rem;
     width: 100%;
 }
 
-.menu a {
-    font-size: 14px;
-    text-decoration: none;
-    padding: 5px 0;
-    transition: color 0.25s ease;
-}
-
-   /* 4. TÍTULO PRINCIPAL */
-
-.introducao {
-    width: min(100% - 32px, 1100px);
-    margin: 36px auto 28px;
-    text-align: center;
-}
-
-.introducao h1 {
-    font-size: clamp(30px, 6vw, 44px);
-    text-transform: uppercase;
-    line-height: 1.2;
-    overflow-wrap: anywhere;
-}
-
-.introducao p {
-    color: var(--cinza);
-    font-size: clamp(15px, 2.5vw, 18px);
-    margin-top: 12px;
-}
-
-/* ========================================
-   5. CATEGORIAS COM CSS GRID
-   CELULAR: UMA COLUNA
-======================================== */
-
-.categorias-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 22px;
-    width: min(100% - 32px, 1200px);
-    margin: 0 auto 48px;
-}
-
-/* ========================================
-   6. CARDS DAS CATEGORIAS
-======================================== */
-
-.categoria {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    background-color: var(--fundo-card);
-    border: 1px solid var(--borda);
-    border-radius: 14px;
-    overflow: hidden;
-    transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.3s ease;
-}
-
-.categoria img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-    background-color: #151515;
-
-    /*Borda azul nas imagens*/
-    border-bottom: 1px solid var(--azul);
-    border-radius: 12px;
-
-    /*Esoaçamento e fundo */
-    background-color: #151515;
-    padding: 3px;
-}
-
-.categoria-conteudo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex: 1;
-    padding: 20px;
-}
-
-.categoria h2 {
-    font-size: 23px;
-    line-height: 1.3;
-    margin-bottom: 12px;
-    overflow-wrap: anywhere;
-}
-
-.etiqueta {
-    display: inline-block;
-    color: #8fb6ff;
-    background-color: #101e39;
-    border: 1px solid #183b75;
-    border-radius: 20px;
-    padding: 4px 10px;
-    margin-bottom: 14px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-}
-
-.categoria p {
-    color: var(--cinza);
-    font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 22px;
-    overflow-wrap: anywhere;
-}
-
-   /* 7. BOTÕES E TRANSIÇÕES */
-
-.categoria-conteudo > a {
-    display: inline-block;
-    margin-top: auto;
-    align-self: flex-start;
-    max-width: 100%;
-    padding: 10px 18px;
-    border: 1px solid var(--azul);
-    border-radius: 7px;
+.menu a,
+body > header nav a {
+    padding: 0.3rem 0;
     color: var(--branco);
+    font-size: 0.9rem;
+    font-weight: 500;
     text-decoration: none;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    overflow-wrap: anywhere;
-    transition:
-        background-color 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
+    white-space: nowrap;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
-.categoria-conteudo > a:focus-visible,
-.menu a:focus-visible,
-.rodape a:focus-visible {
-    outline: 2px solid var(--azul);
-    outline-offset: 4px;
-}
-
-  /* 8. TABLETS: DUAS COLUNAS */
-
-@media (min-width: 600px) {
-    .cabecalho {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 20px;
-        padding: 14px 5%;
-    }
-
-    .menu {
-        width: auto;
-        justify-content: flex-end;
-        gap: 8px 18px;
-    }
-
-    .categorias-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px;
-        width: min(90%, 1200px);
-    }
-
-    .categoria img {
-        height: 210px;
-    }
-
-    .categoria-conteudo {
-        padding: 22px;
-    }
-}
-
-   /* 9. DESKTOP: TRÊS COLUNAS */
-
-@media (min-width: 1000px) {
-    .cabecalho {
-        padding-left: 8%;
-        padding-right: 8%;
-        min-height: 80px;
-    }
-
-    .menu {
-        gap: 25px;
-    }
-
-    .menu a {
-        font-size: 16px;
-    }
-
-    .categorias-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 28px;
-    }
-
-    .categoria img {
-        height: 220px;
-    }
-
-    .categoria-conteudo {
-        padding: 24px;
-    }
-}
-
-
-  /* 10. TRANSFORMS E EFEITOS
-   SOMENTE DISPOSITIVOS COM HOVER */
-
-
-@media (hover: hover) and (pointer: fine) {
-    .menu a:hover {
-        color: var(--azul);
-    }
-
-    .categoria:hover {
-        border-color: var(--azul);
-        box-shadow: 0 10px 30px rgb(0 90 255 / 12%);
-        transform: translateY(-5px);
-    }
-
-    .categoria-conteudo > a:hover {
-        color: var(--branco);
-        background-color: var(--azul);
-        transform: translateY(-2px);
-    }
-}
-
-   /* 11. RODAPÉ RESPONSIVO */
-
-.rodape {
+/* ---------- Rodapé ---------- */
+.rodape,
+body > footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    padding: 24px 16px;
+    gap: 0.75rem;
+
+    width: 100%;
+    padding: 1.25rem 1rem;
+
     background-color: var(--branco);
     color: var(--preto);
     text-align: center;
 }
 
-.rodape p {
-    font-size: 14px;
+.rodape p,
+body > footer p {
+    font-size: 0.9rem;
     overflow-wrap: anywhere;
 }
 
-.rodape nav {
+.rodape nav,
+body > footer nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px 24px;
+    gap: 0.5rem 1.5rem;
 }
 
-.rodape a {
+.rodape a,
+body > footer a {
     color: var(--preto);
     text-decoration: none;
     transition: color 0.25s ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .rodape a:hover {
-        color: var(--azul);
+/* ---------- Tablet / desktop: cabeçalho em linha ---------- */
+@media (min-width: 600px) {
+    .cabecalho,
+    body > header {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1.25rem;
+        padding: 0.875rem 5%;
+    }
+
+    .menu,
+    body > header nav {
+        width: auto;
+        justify-content: flex-end;
+        gap: 0.5rem 1.5rem;
     }
 }
 
-   /* 12. ACESSIBILIDADE E MOVIMENTO */
+@media (min-width: 1000px) {
+    .cabecalho,
+    body > header {
+        padding-inline: 8%;
+        min-height: 5rem;
+    }
+
+    .menu a,
+    body > header nav a {
+        font-size: 1rem;
+    }
+}
+
+/* ---------- Efeitos só onde existe hover ---------- */
+@media (hover: hover) and (pointer: fine) {
+    .title a:hover {
+        color: var(--azul-claro);
+    }
+
+    .menu a:hover,
+    body > header nav a:hover {
+        color: var(--azul);
+        text-shadow: 0 0 8px rgb(0 90 255 / 45%);
+    }
+
+    .rodape a:hover,
+    body > footer a:hover {
+        color: var(--azul);
+        text-decoration: underline;
+    }
+}
+
+/* ---------- Acessibilidade ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--azul-claro);
+    outline-offset: 4px;
+}
 
 @media (prefers-reduced-motion: reduce) {
     html {
@@ -362,5 +232,179 @@ a {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+
+/* =====================================================
+   PÁGINA: CATEGORIAS
+   ===================================================== */
+
+main {
+    flex: 1;
+}
+
+/* ---------- Introdução ---------- */
+.introducao {
+    width: min(100% - 2rem, 70rem);
+    margin: 2.25rem auto 1.75rem;
+    text-align: center;
+}
+
+.introducao h1 {
+    font-size: clamp(1.9rem, 6vw, 2.75rem);
+    line-height: 1.2;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+.introducao p {
+    margin-top: 0.75rem;
+    color: var(--cinza-claro);
+    font-size: clamp(0.95rem, 2.5vw, 1.125rem);
+}
+
+/* ---------- Grid de categorias (celular: 1 coluna) ---------- */
+.categorias-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.375rem;
+
+    width: min(100% - 2rem, 75rem);
+    margin: 0 auto 3rem;
+}
+
+/* ---------- Cards ---------- */
+.categoria {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+
+    background-color: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    overflow: hidden;
+
+    transition: border-color 0.3s ease, box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.categoria img {
+    width: 100%;
+    height: 12rem;
+    padding: 3px;
+
+    background-color: #151515;
+    border-bottom: 1px solid var(--azul);
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.categoria-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    padding: 1.25rem;
+}
+
+.categoria h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.45rem;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.etiqueta {
+    display: inline-block;
+    margin-bottom: 0.875rem;
+    padding: 0.25rem 0.625rem;
+
+    color: #8fb6ff;
+    background-color: #101e39;
+    border: 1px solid #183b75;
+    border-radius: 20px;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.categoria p {
+    margin-bottom: 1.375rem;
+    color: var(--cinza-claro);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Botão do card ---------- */
+.categoria-conteudo > a {
+    display: inline-block;
+    align-self: flex-start;
+    max-width: 100%;
+    margin-top: auto;
+    padding: 0.625rem 1.125rem;
+
+    color: var(--branco);
+    border: 1px solid var(--azul);
+    border-radius: 7px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+
+    transition: background-color 0.25s ease, color 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* ---------- Tablet: 2 colunas ---------- */
+@media (min-width: 600px) {
+    .categorias-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        width: min(90%, 75rem);
+    }
+
+    .categoria img {
+        height: 13rem;
+    }
+
+    .categoria-conteudo {
+        padding: 1.375rem;
+    }
+}
+
+/* ---------- Desktop: 3 colunas ---------- */
+@media (min-width: 1000px) {
+    .categorias-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.75rem;
+    }
+
+    .categoria img {
+        height: 14rem;
+    }
+
+    .categoria-conteudo {
+        padding: 1.5rem;
+    }
+}
+
+/* ---------- Hover ---------- */
+@media (hover: hover) and (pointer: fine) {
+    .categoria:hover {
+        border-color: var(--azul);
+        box-shadow: 0 10px 30px rgb(0 90 255 / 12%);
+        transform: translateY(-5px);
+    }
+
+    .categoria-conteudo > a:hover {
+        background-color: var(--azul);
+        color: var(--branco);
+        transform: translateY(-2px);
     }
 }
