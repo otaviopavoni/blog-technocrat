@@ -1,8 +1,7 @@
 
-/* ========================================
-   1. CONFIGURAÇÕES GERAIS
-   MOBILE FIRST
-======================================== */
+   /* 1. CONFIGURAÇÕES GERAIS
+   MOBILE FIRST */
+
 
 *,
 *::before,
@@ -44,9 +43,9 @@ a {
     color: inherit;
 }
 
-/* ========================================
-   2. CABEÇALHO RESPONSIVO
-======================================== */
+
+/* 2. CABEÇALHO RESPONSIVO */
+
 
 .cabecalho {
     width: 100%;
@@ -76,9 +75,7 @@ a {
     letter-spacing: -1px;
 }
 
-/* ========================================
-   3. MENU COM FLEXBOX
-======================================== */
+   /* 3. MENU COM FLEXBOX */
 
 .menu {
     display: flex;
@@ -96,14 +93,7 @@ a {
     transition: color 0.25s ease;
 }
 
-.menu a[aria-current="page"] {
-    color: var(--azul);
-    font-weight: 700;
-}
-
-/* ========================================
-   4. TÍTULO PRINCIPAL
-======================================== */
+   /* 4. TÍTULO PRINCIPAL */
 
 .introducao {
     width: min(100% - 32px, 1100px);
@@ -207,9 +197,7 @@ a {
     overflow-wrap: anywhere;
 }
 
-/* ========================================
-   7. BOTÕES E TRANSIÇÕES
-======================================== */
+   /* 7. BOTÕES E TRANSIÇÕES */
 
 .categoria-conteudo > a {
     display: inline-block;
@@ -238,9 +226,7 @@ a {
     outline-offset: 4px;
 }
 
-/* ========================================
-   8. TABLETS: DUAS COLUNAS
-======================================== */
+  /* 8. TABLETS: DUAS COLUNAS */
 
 @media (min-width: 600px) {
     .cabecalho {
@@ -271,9 +257,7 @@ a {
     }
 }
 
-/* ========================================
-   9. DESKTOP: TRÊS COLUNAS
-======================================== */
+   /* 9. DESKTOP: TRÊS COLUNAS */
 
 @media (min-width: 1000px) {
     .cabecalho {
@@ -304,10 +288,10 @@ a {
     }
 }
 
-/* ========================================
-   10. TRANSFORMS E EFEITOS
-   SOMENTE DISPOSITIVOS COM HOVER
-======================================== */
+
+  /* 10. TRANSFORMS E EFEITOS
+   SOMENTE DISPOSITIVOS COM HOVER */
+
 
 @media (hover: hover) and (pointer: fine) {
     .menu a:hover {
@@ -327,9 +311,7 @@ a {
     }
 }
 
-/* ========================================
-   11. RODAPÉ RESPONSIVO
-======================================== */
+   /* 11. RODAPÉ RESPONSIVO */
 
 .rodape {
     display: flex;
@@ -366,9 +348,7 @@ a {
     }
 }
 
-/* ========================================
-   12. ACESSIBILIDADE E MOVIMENTO
-======================================== */
+   /* 12. ACESSIBILIDADE E MOVIMENTO */
 
 @media (prefers-reduced-motion: reduce) {
     html {

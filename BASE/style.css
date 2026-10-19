@@ -121,9 +121,8 @@ body {
 }
 
 
-/* ========================================
-   4. CONTEÚDO PRINCIPAL
-======================================== */
+   /* 4. CONTEÚDO PRINCIPAL */
+
 
 main {
     width: 100%;
@@ -135,9 +134,9 @@ main {
     flex: 1;
 }
 
-/* ========================================
-   5. SEÇÃO PRINCIPAL
-======================================== */
+
+   /* 5. SEÇÃO PRINCIPAL */
+
 
 .destaque {
     text-align: center;
@@ -187,9 +186,9 @@ main {
     transform: translateY(-2px);
 }
 
-/* ========================================
-   6. SEÇÃO DOS CARDS
-======================================== */
+
+   /* 6. SEÇÃO DOS CARDS */
+ 
 
 .secao-cards {
     text-align: center;
@@ -253,9 +252,7 @@ main {
     box-shadow: 0 0 20px rgb(0 110 255 / 20%);
 }
 
-/* ========================================
-   7. SEÇÃO DE CATEGORIAS
-======================================== */
+   /* 7. SEÇÃO DE CATEGORIAS */
 
 .secao-categorias {
     text-align: center;
@@ -272,9 +269,7 @@ main {
     margin-bottom: 25px;
 }
 
-/* ========================================
-   8. RODAPÉ
-======================================== */
+   /* 8. RODAPÉ     */
 
 .rodape {
     width: 100%;
@@ -316,9 +311,9 @@ main {
     text-decoration: underline;
 }
 
-/* ========================================
-   9. TABLETS E TELAS MÉDIAS
-======================================== */
+
+  /* 9. TABLETS E TELAS MÉDIAS */
+
 
 @media (max-width: 1000px) {
     .cabecalho {
@@ -344,9 +339,7 @@ main {
     }
 }
 
-/* ========================================
-   10. CELULARES
-======================================== */
+   /* 10. CELULARES */
 
 @media (max-width: 700px) {
     .cabecalho {
@@ -416,9 +409,9 @@ main {
     }
 }
 
-/* ========================================
-   11. CELULARES PEQUENOS
-======================================== */
+
+   /* 11. CELULARES PEQUENOS */
+
 
 @media (max-width: 380px) {
     .title a {
@@ -446,9 +439,9 @@ main {
     }
 }
 
-/* ========================================
-   12. ACESSIBILIDADE
-======================================== */
+
+  /* 12. ACESSIBILIDADE */
+
 
 a:focus-visible {
     outline: 2px solid #66aaff;
