@@ -51,3 +51,19 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
+// INDICADOR DE ROLAGEM
+
+window.addEventListener("scroll", function() {
+
+    const progresso = document.getElementById("progresso");
+
+    const alturaPagina = document.documentElement.scrollHeight - window.innerHeight;
+
+    const posicaoAtual = window.scrollY;
+
+    const porcentagem = (posicaoAtual / alturaPagina) * 100;
+
+    progresso.style.width = porcentagem + "%";
+
+});
