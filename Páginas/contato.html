@@ -20,15 +20,7 @@
         </nav>
     </header>
 
-    <main>
-            
-        <section class="contato">
-            
-            <h2>ENTRE EM CONTATO</h2>
-              <br>
-            <h4>Quer entrar em contato conosco para agradecimentos, reclamações, erros no site ou sugestões?</h4>
-              <br>
-                <form>
+ <main>
 
     <section class="contato">
 
@@ -39,9 +31,7 @@
             Preencha o formulário abaixo e envie sua mensagem.
         </p>
 
-        <br>
-
-        <form>
+        <form id="form-contato">
 
             <label for="nome">Nome:</label>
             <input
@@ -52,8 +42,6 @@
                 required
             >
 
-            <br>
-
             <label for="email">E-mail:</label>
             <input
                 type="email"
@@ -62,8 +50,6 @@
                 placeholder="seu@email.com"
                 required
             >
-
-            <br>
 
             <label for="assunto">Assunto:</label>
             <select id="assunto" name="assunto" required>
@@ -74,8 +60,6 @@
                 <option value="outro">Outro assunto</option>
             </select>
 
-            <br>
-
             <label for="mensagem">Mensagem:</label>
             <textarea
                 id="mensagem"
@@ -85,13 +69,9 @@
                 required
             ></textarea>
 
-            <br>
-
             <button type="submit">Enviar Mensagem</button>
 
         </form>
-
-        <br>
 
         <p>
             Agradecemos seu contato e interesse pelo Technocrat.
