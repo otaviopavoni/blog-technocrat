@@ -1,4 +1,4 @@
-# 🖥️ Technocrat — Blog de Tecnologia
+# 🖥️ Technocraft — Blog de Tecnologia
 
 Site estático de um blog sobre tecnologia, feito com **HTML, CSS e JavaScript puro**, sem frameworks e sem etapa de build. Foi desenvolvido por estudantes como forma de colocar em prática o que aprenderam sobre desenvolvimento web.
 
@@ -8,7 +8,7 @@ Site estático de um blog sobre tecnologia, feito com **HTML, CSS e JavaScript p
 
 ## 📌 Sobre o projeto
 
-O **Technocrat** tem como objetivo compartilhar conhecimento sobre tecnologia de forma simples e acessível, tanto para quem já atua na área de T.I. quanto para quem está começando. O conteúdo gira em torno de três pilares:
+O **Technocraft** tem como objetivo compartilhar conhecimento sobre tecnologia de forma simples e acessível, tanto para quem já atua na área de T.I. quanto para quem está começando. O conteúdo gira em torno de três pilares:
 
 - **Tecnologia**: novidades e informações sobre diferentes áreas do mundo tech.
 - **Inovação**: ideias e tecnologias que estão transformando o dia a dia.
