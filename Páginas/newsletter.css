@@ -343,6 +343,35 @@ form input::placeholder {
     color: var(--cinza);
 }
 
+/* ---------- Mensagem de sucesso ---------- */
+
+.mensagem-sucesso {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+
+    background-color: #111111;
+    color: #ffffff;
+
+    border: 2px solid #005aff;
+    border-radius: 10px;
+
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.8;
+
+    white-space: pre-line;
+
+    box-shadow: 0 0 15px rgb(0 90 255 / 20%);
+}
+
+/* Título da mensagem */
+.mensagem-sucesso::first-line {
+    color: #66aaff;
+    font-weight: bold;
+}
+
+
 /* ---------- Fieldset ---------- */
 fieldset {
     width: 100%;
