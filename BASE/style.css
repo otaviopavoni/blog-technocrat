@@ -65,6 +65,59 @@ a {
     color: inherit;
 }
 
+.mensagem-boas-vindas {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    max-width: 350px;
+    padding: 20px;
+
+    background-color: #151c28;
+    color: #ffffff;
+
+    border-left: 4px solid #005aff;
+    border-radius: 8px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition: opacity 0.5s ease,
+                transform 0.5s ease,
+                visibility 0.5s ease;
+}
+
+.mensagem-boas-vindas h3 {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.mensagem-boas-vindas p {
+    color: #cccccc;
+    line-height: 1.5;
+}
+
+.mensagem-boas-vindas.mostrar {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .mensagem-boas-vindas {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        max-width: none;
+    }
+}
+
 /* ---------- Cabeçalho (celular: coluna) ---------- */
 .cabecalho,
 body > header {
