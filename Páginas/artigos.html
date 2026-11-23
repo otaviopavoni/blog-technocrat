@@ -23,6 +23,10 @@
       <section>
         <h2>Notícias e artigos recentes</h2>
 
+        <button id="abrir-formulario" type="button">
+    + Publique aqui
+</button>
+
         <article>
           <img
             src="imagens/IA.jpg"
@@ -125,6 +129,64 @@
           <a href="#">Leia o artigo →</a>
         </article>
       </section>
+
+      <section class="comunidade">
+
+    <h2>Compartilhe seu conhecimento</h2>
+
+    <form id="form-publicacao" hidden>
+
+        <label for="autor">Seu nome:</label>
+        <input
+            type="text"
+            id="autor"
+            placeholder="Digite seu nome"
+            required
+        >
+
+        <label for="titulo">Título da publicação:</label>
+        <input
+            type="text"
+            id="titulo"
+            placeholder="Digite o título"
+            required
+        >
+
+        <label for="categoria">Categoria:</label>
+        <select id="categoria" required>
+            <option value="">Selecione uma categoria</option>
+            <option value="Inteligência Artificial">Inteligência Artificial</option>
+            <option value="Programação">Programação</option>
+            <option value="Hardware">Hardware</option>
+            <option value="Segurança">Segurança</option>
+            <option value="Games">Games</option>
+            <option value="Inovação">Inovação</option>
+            <option value="Outros">Outros</option>
+        </select>
+
+        <label for="resumo">Resumo:</label>
+        <textarea
+            id="resumo"
+            rows="3"
+            placeholder="Faça um pequeno resumo..."
+            required
+        ></textarea>
+
+        <label for="conteudo">Conteúdo:</label>
+        <textarea
+            id="conteudo"
+            rows="6"
+            placeholder="Escreva sua publicação..."
+            required
+        ></textarea>
+
+        <button type="submit">Publicar artigo</button>
+
+    </form>
+
+    <div id="lista-publicacoes"></div>
+
+</section>
     </main>
 
     <footer>
