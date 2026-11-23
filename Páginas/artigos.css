@@ -371,3 +371,189 @@ article a {
         text-decoration: underline;
     }
 }
+
+
+/* =====================================================
+   PUBLICAÇÕES DA COMUNIDADE
+   ===================================================== */
+
+/* Botão para abrir o formulário */
+#abrir-formulario {
+    grid-column: 1 / -1;
+    justify-self: center;
+
+    padding: 0.85rem 1.5rem;
+
+    background-color: var(--azul);
+    color: var(--branco);
+    border: none;
+    border-radius: 6px;
+
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#abrir-formulario:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+/* Área da comunidade */
+.comunidade {
+    margin-top: 3rem;
+    padding-top: 2rem;
+
+    border-top: 1px solid var(--borda);
+}
+
+.comunidade > h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 1rem;
+
+    color: var(--azul);
+    text-align: center;
+}
+
+/* Formulário */
+#form-publicacao {
+    grid-column: 1 / -1;
+    justify-self: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    width: 100%;
+    max-width: 35rem;
+    padding: 1.5rem;
+
+    background-color: var(--card);
+    border: 1px solid var(--azul);
+    border-radius: 12px;
+}
+
+#form-publicacao[hidden] {
+    display: none;
+}
+
+#form-publicacao label {
+    font-weight: bold;
+    text-align: left;
+}
+
+#form-publicacao input,
+#form-publicacao select,
+#form-publicacao textarea {
+    width: 100%;
+    padding: 0.75rem;
+
+    background-color: var(--preto);
+    color: var(--branco);
+
+    border: 1px solid var(--azul);
+    border-radius: 6px;
+
+    font: inherit;
+}
+
+#form-publicacao textarea {
+    resize: vertical;
+}
+
+#form-publicacao button {
+    padding: 0.85rem;
+
+    background-color: var(--azul);
+    color: var(--branco);
+
+    border: none;
+    border-radius: 6px;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Lista de publicações */
+#lista-publicacoes {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+}
+
+/* Cards criados pelo JavaScript */
+.publicacao {
+    min-width: 0;
+    padding: 1.5rem;
+
+    background-color: var(--card);
+    border: 1px solid var(--azul);
+    border-radius: 12px;
+
+    overflow-wrap: anywhere;
+}
+
+.publicacao span {
+    display: block;
+    margin-bottom: 0.75rem;
+
+    color: var(--azul);
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.publicacao h3 {
+    margin-bottom: 0.75rem;
+    color: var(--branco);
+}
+
+.publicacao p {
+    margin-bottom: 0.75rem;
+    color: var(--cinza-claro);
+}
+
+.publicacao .autor-publicacao {
+    color: var(--azul-claro);
+    font-size: 0.9rem;
+}
+
+@media (min-width: 600px) {
+    #lista-publicacoes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1000px) {
+    #lista-publicacoes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* ---------- Botão de excluir publicação ---------- */
+
+.botao-excluir {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+
+    background-color: transparent;
+    color: #ff5555;
+
+    border: 1px solid #ff5555;
+    border-radius: 6px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease;
+}
+
+.botao-excluir:hover {
+    background-color: #ff5555;
+    color: var(--branco);
+}
